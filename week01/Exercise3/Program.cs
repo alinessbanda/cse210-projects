@@ -4,6 +4,52 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Exercise3 Project.");
+        string playAgain = "yes";
+
+        // For Stretch Challenge: Loop the whole game while the user wants to play again
+        while (playAgain.ToLower() == "yes")
+        {
+            // For parts 1 and 2, where the user specified the number...
+            // Console.Write("What is the magic number? ");
+            // int magicNumber = int.Parse(Console.ReadLine());
+
+            // For part 3, where we use a random number
+            Random randomGenerator = new Random();
+            int magicNumber = randomGenerator.Next(1, 101);
+
+            int guess = -1;
+            int guessCount = 0;
+
+            // We could also use a do-while loop here...
+            while (guess != magicNumber)
+            {
+                Console.Write("What is your guess? ");
+                guess = int.Parse(Console.ReadLine());
+                guessCount++;
+
+                if (guess < magicNumber)
+                {
+                    Console.WriteLine("Higher");
+                }
+                else if (guess > magicNumber)
+                {
+                    Console.WriteLine("Lower");
+                }
+                else
+                {
+                    Console.WriteLine("You guessed it!");
+                    Console.WriteLine($"It took you {guessCount} guesses.");
+                }
+
+            }
+
+            Console.Write("Do you want to play again? (yes/no): ");
+            playAgain = Console.ReadLine();
+
+        }
+
+        Console.WriteLine("Thanks for playing!");
+
+
     }
 }
