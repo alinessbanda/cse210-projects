@@ -33,6 +33,7 @@ public class Video
         display.AppendLine($"Title: {_title}");
         display.AppendLine($"Author: {_author}");
         display.AppendLine($"Length: {_videoLength} seconds");
+        display.AppendLine($"Number of Comments: {_commentList.Count}"); // ✅ Added line
         display.AppendLine("Comments:");
 
         foreach (var comment in _commentList)
